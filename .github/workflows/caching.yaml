@@ -13,7 +13,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}
-          key: ${{ runner.os }}-cache-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-cache-${{ hashFiles('**/') }}
           #TODO: test with restore key as well
 
       - if: steps.cache.outputs.cache-hit != 'true'
