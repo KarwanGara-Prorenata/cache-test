@@ -19,4 +19,10 @@ jobs:
       - if: steps.cache.outputs.cache-hit != 'true'
         run: |
           touch post-cache.txt 
+        
+      - name: Check Cached Directory
+        run: |
+          echo "Contents of the cached directory:"
+          ls -R ${{ github.workspace }}
+        continue-on-error: true        
       
