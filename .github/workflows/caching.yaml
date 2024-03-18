@@ -16,7 +16,7 @@ jobs:
           key: ${{ runner.os }}-cache-${{ hashFiles('**/package-lock.json') }}
           #TODO: test with restore key as well
 
-      - if steps.cache.outputs.cache-hit != 'true'
+      - if: steps.cache.outputs.cache-hit != 'true'
         run: |
           touch post-cache.txt 
       
