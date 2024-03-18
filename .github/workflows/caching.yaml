@@ -2,7 +2,6 @@ name: Caching workflow
 
 on: push
 
-# jobs
 jobs:
   cache:
     runs-on: ubuntu-latest
