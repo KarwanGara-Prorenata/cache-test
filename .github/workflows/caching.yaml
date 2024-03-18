@@ -20,7 +20,7 @@ jobs:
       - if: steps.cache.outputs.cache-hit != 'true'
         run: |
           cd Caching
-          touch post-cache.txt
+          echo post-cache >> post-cache.txt
         
       - name: Check Cached Directory
         run: |
