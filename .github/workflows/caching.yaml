@@ -24,6 +24,6 @@ jobs:
       - name: Check Cached Directory
         run: |
           echo "Contents of the cached directory:"
-          ls -R /Cachingt
+          ls -R /Caching
         continue-on-error: true        
       
