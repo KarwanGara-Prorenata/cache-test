@@ -13,7 +13,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}
-          key: ${{ runner.os }}-cache-${{ hashFiles('**/') }}
+          key: ${{ runner.os }}-cache-${{ hashFiles('**/Caching') }}
           #TODO: test with restore key as well
 
       - if: steps.cache.outputs.cache-hit != 'true'
@@ -23,6 +23,6 @@ jobs:
       - name: Check Cached Directory
         run: |
           echo "Contents of the cached directory:"
-          ls -R ${{ github.workspace }}
+          ls -R /Cachingt
         continue-on-error: true        
       
