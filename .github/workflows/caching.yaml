@@ -1,7 +1,9 @@
 name: Caching workflow
 
-on: push
-# jobssssssss
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+# jobs
 jobs:
   cache:
     runs-on: ubuntu-latest
@@ -26,5 +28,4 @@ jobs:
         run: |
           echo "Contents of the cached directory:"
           ls -R ./Caching
-        continue-on-error: true        
-      
+        continue-on-error: true
