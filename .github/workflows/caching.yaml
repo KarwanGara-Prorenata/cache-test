@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, closed]
 
-# jobs
 jobs:
   cache:
     runs-on: ubuntu-latest
