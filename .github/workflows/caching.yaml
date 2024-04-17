@@ -1,9 +1,7 @@
 name: Testing trigger workflow
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize, closed]
-
+  push:
 # jobs
 jobs:
 
