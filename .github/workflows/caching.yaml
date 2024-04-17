@@ -1,31 +1,20 @@
-name: Caching workflow
+name: Testing trigger workflow
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize, closed]
-
+  push:
+# jobs
 jobs:
-  cache:
-    runs-on: ubuntu-latest
+
+  trigger-unit-tests:
+    runs-on: ubuntu-20.04
+    # needs: [build_prepare, build-eketorp]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cache
-        id: cache
-        uses: actions/cache@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3.0.0
         with:
-          path: ${{ github.workspace }}
-          key: ${{ runner.os }}-cache-${{ hashFiles('**/Caching') }}
-          #TODO: test with restore key as well
-
-      - if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          cd Caching
-          echo post-cache >> post-cache.txt
-        
-      - name: Check Cached Directory
-        run: |
-          echo "Contents of the cached directory:"
-          ls -R ./Caching
-        continue-on-error: true
+          token: ${{ secrets.KARWAN_PAT }}
+          repository: KarwanGara-Prorenata/cache-test
+          event-type: trigger-test
