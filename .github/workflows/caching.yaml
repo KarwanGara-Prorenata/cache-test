@@ -1,5 +1,4 @@
-name: Testing trigger workflow
-
+name: Main Workflow
 on:
   push:
 # jobs
