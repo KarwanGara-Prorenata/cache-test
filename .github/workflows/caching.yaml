@@ -6,6 +6,21 @@ on:
 
 # jobs
 jobs:
+
+  trigger-unit-tests:
+    runs-on: ubuntu-20.04
+    # needs: [build_prepare, build-eketorp]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3.0.0
+        with:
+          token: ${{ secrets.KARWAN_PAT }}
+          repository: KarwanGara-Prorenata/cache-test
+          event-type: trigger-test           
+
   cache:
     runs-on: ubuntu-latest
     steps:
