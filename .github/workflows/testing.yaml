@@ -7,9 +7,6 @@ on:
     push:
         branches:
             - PRNJ-10223-DEV-7606-Migrate-Unit-Testing
-
-permissions:
-    contents: write
     
 defaults:
     run:
@@ -21,8 +18,11 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
+              with:
+                ref: ${{ github.event.client_payload.BRANCH_NAME }}
 
             - name: test
               run: |
                 echo "Running unit tests"
                 echo "Unit tests passed"
+                echo "Branch name:" "${{ github.event.client_payload.BRANCH_NAME }}"
