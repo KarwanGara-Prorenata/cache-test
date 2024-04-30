@@ -22,4 +22,4 @@ jobs:
           token: ${{ secrets.KARWAN_PAT }}
           repository: KarwanGara-Prorenata/cache-test
           event-type: trigger-test
-          client-payload: '{"EVENT_NAME": "${{ github.event }}"}'
+          client-payload: '{"BRANCH_NAME": "${{ env.BRANCH_NAME }}"}'
