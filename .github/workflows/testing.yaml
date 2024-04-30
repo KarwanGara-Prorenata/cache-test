@@ -3,7 +3,7 @@ name: Triggered Workflow
 on:
     repository_dispatch:
         types: [trigger-test]
-    
+
 defaults:
     run:
         shell: bash
@@ -15,10 +15,11 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v4
               with:
-                ref: ${{ github.event.client_payload.EVENT_NAME }}
+                ref: ${{ github.event.client_payload.BRANCH_NAME }}
 
             - name: test
               run: |
+                echo "Event:" "${{ github.event }}"
                 echo "Running unit tests"
                 echo "Unit tests passed"
-                echo "Branch name:" "${{ github.event.client_payload.EVENT_NAME }}"
+                echo "Branch name:" "${{ github.event.client_payload.BRANCH_NAME }}"
