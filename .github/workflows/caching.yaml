@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       
-      - run: echo "Event" "${{ github.event }}"
+      - run: echo "Event" "${{ github.event_name }}"
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3.0.0
