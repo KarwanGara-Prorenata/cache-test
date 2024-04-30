@@ -3,10 +3,6 @@ name: Triggered Workflow
 on:
     repository_dispatch:
         types: [trigger-test]
-
-    push:
-        branches:
-            - PRNJ-10223-DEV-7606-Migrate-Unit-Testing
     
 defaults:
     run:
@@ -19,10 +15,11 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v4
               with:
-                ref: ${{ github.event.client_payload.BRANCH_NAME }}
+                ref: ${{ github.event.client_payload }}
 
             - name: test
               run: |
                 echo "Running unit tests"
                 echo "Unit tests passed"
                 echo "Branch name:" "${{ github.event.client_payload.BRANCH_NAME }}"
+                echo "Branch name:" "${{ github.event.client_payload.EVENT_NAME }}"
