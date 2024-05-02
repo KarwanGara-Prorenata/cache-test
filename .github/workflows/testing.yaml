@@ -19,7 +19,7 @@ jobs:
 
             - name: test
               run: |
-                echo "Event:" "${{ github.event }}"
+                echo "Branch name:" "${{ github.event.client_payload.BRANCH_NAME }}"
+                echo "Event name:" "${{ github.event.client_payload.event_name }}"
                 echo "Running unit tests"
                 echo "Unit tests passed"
-                echo "Branch name:" "${{ github.event.client_payload.BRANCH_NAME }}"
