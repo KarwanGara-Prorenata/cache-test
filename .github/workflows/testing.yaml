@@ -15,7 +15,7 @@ jobs:
             - name: Checkout Repository
               uses: actions/checkout@v4
               with:
-                ref: ${{ github.event.client_payload.BRANCH_NAME }}
+                ref: ${{ github.event.client_payload.event_name }}
 
             - name: test
               run: |
