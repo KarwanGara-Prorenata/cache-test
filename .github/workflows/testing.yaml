@@ -23,3 +23,5 @@ jobs:
                 echo "Event name:" "${{ github.event.client_payload.event_name }}"
                 echo "Running unit tests"
                 echo "Unit tests passed"
+
+# Trigger the workflow
